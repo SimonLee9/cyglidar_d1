@@ -13,7 +13,7 @@
 cyg_driver::TransformPayload TransformPayload;
 ColorRGB colorRGB;
 
-void publishMessageLaserScan(ros::Publisher publisher_laserscan_, sensor_msgs::LaserScan::Ptr message_laserscan_, std::string frame_id_,
+void publishMessageLaserScan(ros::Publisher publisher_laserscan_, sensor_msgs::LaserScan::Ptr message_laserscan_, std::string frame_id_, std::string warning_, // warning_ 추가 
                              ros::Time start_, double scan_time_, int payload_data_length_2d_, uint16_t *distance_value_array_buffer_2d_)
 {
     message_laserscan_->header.frame_id = frame_id_;
