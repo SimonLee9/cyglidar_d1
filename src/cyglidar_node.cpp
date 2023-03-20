@@ -159,6 +159,8 @@ int main(int argc, char **argv)
     int frequency_channel;
     int sensitivity;
 
+    std::string warning_;  // add, for warning
+	
     ros::init(argc, argv, "Cyglidar_Node");
 
     ros::NodeHandle nh;
@@ -204,6 +206,8 @@ int main(int argc, char **argv)
     {
         // Open the port
         cyglidar_pcl cyglidar_serial_port(port, baud_rate, io);
+	    
+	ros::Publisher publish_warning = nh.advertise<std::warning>("distace_warning", 1); // add, for warning
 
         ros::Publisher publisher_laserscan = nh.advertise<sensor_msgs::LaserScan>("scan", SCAN_MAX_SIZE);
         ros::Publisher publisher_point_2d   = nh.advertise<sensor_msgs::PointCloud2>("scan_2D", 1);
